@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import { auth, signOut } from '../../fb'
 
 const Navbar = ({ userId }) => {
@@ -5,58 +6,72 @@ const Navbar = ({ userId }) => {
 		<>
 			<nav className='navbar navbar-expand-lg navbar-light' style={{ backgroundColor: 'rgba(2, 7, 17, 0.9)' }}>
 				<div className='container-fluid'>
-					<a className='navbar-brand' href='/user/profile'>
+					<NavLink className='navbar-brand' to='/user/profile'>
 						<img src='/images/login.png' alt='Logo' height='40' className='d-inline-block align-text-top' />
-					</a>
-					<button
-						style={{ backgroundColor: '#95a8f3' }}
-						className='navbar-toggler'
-						type='button'
-						data-bs-toggle='collapse'
-						data-bs-target='#navbarSupportedContent'
-					>
+					</NavLink>
+					<button style={{ backgroundColor: '#95a8f3' }} className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'>
 						<span className='navbar-toggler-icon'></span>
 					</button>
 					<div className='collapse navbar-collapse' id='navbarSupportedContent'>
 						<div className='d-flex flex-grow-1 justify-content-center'>
 							<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
 								<li className='nav-item mx-4'>
-									<a
+									<NavLink
 										className='nav-link'
-										style={{ color: '#95a8f3', fontSize: '1.6rem', fontFamily: "'Nunito', sans-serif", fontWeight: 800 }}
+										style={{
+											color: '#95a8f3',
+											fontSize: '1.6rem',
+											fontFamily: "'Nunito', sans-serif",
+											fontWeight: 800
+										}}
 										aria-current='page'
-										href='/user'
+										to='/user'
 									>
 										Home
-									</a>
+									</NavLink>
 								</li>
 								<li className='nav-item mx-4'>
-									<a
+									<NavLink
 										className='nav-link'
-										style={{ color: '#95a8f3', fontSize: '1.6rem', fontFamily: "'Nunito', sans-serif", fontWeight: 800 }}
-										href='/user/reports'
+										style={{
+											color: '#95a8f3',
+											fontSize: '1.6rem',
+											fontFamily: "'Nunito', sans-serif",
+											fontWeight: 800
+										}}
+										to='/user/reports'
 									>
 										Reports
-									</a>
+									</NavLink>
 								</li>
 								<li className='nav-item mx-4'>
-									<a
+									<NavLink
 										className='nav-link'
-										style={{ color: '#95a8f3', fontSize: '1.6rem', fontFamily: "'Nunito', sans-serif", fontWeight: 800 }}
+										style={{
+											color: '#95a8f3',
+											fontSize: '1.6rem',
+											fontFamily: "'Nunito', sans-serif",
+											fontWeight: 800
+										}}
 										aria-current='page'
-										href='/user/medicine'
+										to='/user/medicine'
 									>
 										Medicine
-									</a>
+									</NavLink>
 								</li>
 								<li className='nav-item mx-4'>
-									<a
+									<NavLink
 										className='nav-link'
-										style={{ color: '#95a8f3', fontSize: '1.6rem', fontFamily: "'Nunito', sans-serif", fontWeight: 800 }}
-										href='/user/appointment'
+										style={{
+											color: '#95a8f3',
+											fontSize: '1.6rem',
+											fontFamily: "'Nunito', sans-serif",
+											fontWeight: 800
+										}}
+										to='/user/appointment'
 									>
 										Appointment
-									</a>
+									</NavLink>
 								</li>
 							</ul>
 						</div>
@@ -79,7 +94,7 @@ const Navbar = ({ userId }) => {
 								</button>
 							</div>
 						) : (
-							<a
+							<NavLink
 								className='btn btn-outline-success'
 								style={{
 									backgroundColor: '#95a8f3',
@@ -89,10 +104,10 @@ const Navbar = ({ userId }) => {
 									fontWeight: 800,
 									color: 'rgba(2, 7, 17, 0.9)'
 								}}
-								href='/user/login'
+								to='/user/login'
 							>
 								Login
-							</a>
+							</NavLink>
 						)}
 					</div>
 				</div>

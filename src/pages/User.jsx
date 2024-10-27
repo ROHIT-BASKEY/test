@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { onAuthStateChanged, auth } from '../fb'
 import Navbar from './User/Navbar'
 import Home from './User/Home'
@@ -11,28 +11,30 @@ import Appointment from './User/Appointment'
 
 function User() {
 	const [id, setId] = useState()
+	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		onAuthStateChanged(auth, async (usr) => {
-			if (usr) {
-				setId(usr.uid)
-			} else {
-				setId()
-			}
+		onAuthStateChanged(auth, (usr) => {
+			setId(usr?.uid)
+			setLoading(false)
 		})
 	}, [])
 
 	return (
 		<>
 			<Navbar userId={id} />
-			<Routes>
-				<Route path='login' element={<Login userId={id} />} />
-				<Route path='profile' element={<Profile userId={id} />} />
-				<Route path='appointment' element={<Appointment userId={id} />} />
-				<Route path='reports' element={<Reports userId={id} />} />
-				<Route path='medicine' element={<Medicine userId={id} />} />
-				<Route path='*' element={<Home userId={id} />} />
-			</Routes>
+			{loading ? (
+				'Loading...'
+			) : (
+				<Routes>
+					<Route path='login' element={<Login userId={id} />} />
+					<Route path='profile' element={id ? <Profile userId={id} /> : <Navigate to='/user/login' />} />
+					<Route path='appointment' element={id ? <Appointment userId={id} /> : <Navigate to='/user/login' />} />
+					<Route path='reports' element={id ? <Reports userId={id} /> : <Navigate to='/user/login' />} />
+					<Route path='medicine' element={id ? <Medicine userId={id} /> : <Navigate to='/user/login' />} />
+					<Route path='*' element={<Home userId={id} />} />
+				</Routes>
+			)}
 		</>
 	)
 }

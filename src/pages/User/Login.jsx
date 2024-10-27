@@ -68,12 +68,7 @@ function LoginUser(userId = { id }) {
 									<div className=' text-center  p-4'>
 										<form onSubmit={register}>
 											<div className='mb-4'>
-												<img
-													style={{ height: '200px', width: '200px;' }}
-													src='/images/login.png'
-													alt='Profile Picture'
-													className='rounded-circle profile-img'
-												/>
+												<img style={{ height: '200px', width: '200px' }} src='/images/login.png' alt='Profile Picture' className='rounded-circle profile-img' />
 											</div>
 											<div className='mb-3'>
 												<input type='text' className='form-control' name='name' placeholder='Name' />
@@ -157,24 +152,14 @@ function LoginUser(userId = { id }) {
 										Medical Management Made Simple...
 									</p>
 								</div>
-								<img
-									style={{ maxWidth: '60%', height: 'auto' }}
-									className='hero-img d-none d-lg-block'
-									src='/images/medical2.svg'
-									alt='Medical Illustration'
-								/>
+								<img style={{ maxWidth: '60%', height: 'auto' }} className='hero-img d-none d-lg-block' src='/images/medical2.svg' alt='Medical Illustration' />
 							</div>
 							<div className='col-lg-4 offset-lg-1'>
 								<div className='card-custom mx-auto' style={{ width: '100%', maxWidth: '300px' }}>
 									<div className=' text-center'>
 										<form onSubmit={login}>
 											<div className='mb-4'>
-												<img
-													style={{ height: '200px', width: '200px;' }}
-													src='/images/login.png'
-													alt='Profile Picture'
-													className='rounded-circle profile-img'
-												/>
+												<img style={{ height: '200px', width: '200px' }} src='/images/login.png' alt='Profile Picture' className='rounded-circle profile-img' />
 											</div>
 											<div className='mb-3'>
 												<input type='text' className='form-control' name='email' placeholder='Email' />
